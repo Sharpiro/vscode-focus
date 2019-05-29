@@ -1,15 +1,15 @@
 {
-	"name": "virtual-document-sample",
-	"displayName": "Cowsay in virtual documents",
-	"description": "A sample for virtual document",
+	"name": "vscode-focus",
+	"displayName": "vscode-focus",
+	"description": "vscode-focus",
 	"version": "0.0.1",
-	"publisher": "vscode-samples",
+	"publisher": "sharpiro",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Microsoft/vscode-extension-samples"
+		"url": "https://github.com/Sharpiro/vscode-focus"
 	},
 	"bugs": {
-		"url": "https://github.com/Microsoft/vscode-extension-samples/issues"
+		"url": "https://github.com/Sharpiro/vscode-focus/issues"
 	},
 	"engines": {
 		"vscode": "^1.32.0"
@@ -18,41 +18,21 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:cowsay.say"
+		"*"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "cowsay.say",
-				"title": "cowsay"
-			},
-			{
-				"command": "cowsay.send",
-				"title": "cowsay-send"
-			},
-			{
-				"command": "cowsay.backwards",
-				"title": "cowsay (↹)"
+				"command": "vscode-focus.focus",
+				"title": "Focus Selection"
 			}
 		],
 		"menus": {
 			"editor/context": [
 				{
-					"command": "cowsay.send"
-				}
-			],
-			"editor/title": [
-				{
-					"command": "cowsay.backwards",
-					"group": "navigation",
-					"when": "resourceScheme == cowsay"
-				}
-			],
-			"commandPalette": [
-				{
-					"command": "cowsay.backwards",
-					"when": "resourceScheme == cowsay"
+					"command": "vscode-focus.focus",
+					"when": "resourceScheme != vscode-focus"
 				}
 			]
 		}
@@ -63,11 +43,9 @@
 		"lint": "tslint -p ./",
 		"watch": "tsc -watch -p ./"
 	},
-	"dependencies": {
-		"cowsay": "1.3.1"
-	},
 	"devDependencies": {
-		"typescript": "^3.4.5",
-		"@types/vscode": "^1.32.0"
+		"@types/node": "^12.0.3",
+		"@types/vscode": "^1.32.0",
+		"typescript": "^3.4.5"
 	}
 }
